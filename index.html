@@ -24,6 +24,11 @@
       </div>
     </div>
     <script>
+      // Function to send score to React Native
+      function sendScoreToReactNative(score) {
+          const message = JSON.stringify({ type: 'score', score: score });
+          window.ReactNativeWebView.postMessage(message);
+      }
 
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -89,7 +94,6 @@
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
-
 
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
